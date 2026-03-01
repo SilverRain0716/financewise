@@ -1,0 +1,1072 @@
+/*
+Theme Name: FinanceWise Magazine
+Template: generatepress
+Description: A premium financial magazine theme with tax calculator tools.
+Version: 1.4.0
+Author: FinanceWise Team
+*/
+
+:root {
+    --navy: #0a192f;
+    --navy-light: #112240;
+    --primary: #64ffda;
+    --text-main: #ccd6f6;
+    --text-muted: #8892b0;
+    --white: #ffffff;
+    --font-main: 'Inter', sans-serif;
+    --font-serif: 'Playfair Display', serif;
+}
+
+body {
+    font-family: var(--font-main);
+    color: #333;
+    background-color: #f9fafb;
+    margin: 0;
+}
+
+/* ============================================
+   Main Container
+   ============================================ */
+.fw-main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+}
+
+/* ============================================
+   Hero Section (Front Page)
+   ============================================ */
+.fw-hero {
+    position: relative;
+    background: var(--navy);
+    color: var(--white);
+    text-align: center;
+    padding: 6rem 2rem;
+    overflow: hidden;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    box-sizing: border-box;
+}
+
+.fw-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+    opacity: 0.95;
+    z-index: 0;
+}
+
+.fw-hero-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.fw-hero-content-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.fw-hero-title {
+    font-family: var(--font-serif);
+    font-size: 3.5rem;
+    font-weight: 900;
+    line-height: 1.1;
+    margin: 0;
+}
+
+.fw-italic-accent {
+    color: var(--primary);
+    font-style: italic;
+}
+
+.fw-hero-sub {
+    font-size: 1.1rem;
+    color: var(--text-main);
+    line-height: 1.7;
+    margin: 0;
+}
+
+.fw-search-form .fw-input {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: var(--white);
+}
+
+.fw-search-form .fw-input::placeholder {
+    color: var(--text-muted);
+}
+
+.fw-input:focus, .fw-select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(100, 255, 218, 0.15);
+}
+
+/* Archive Hero */
+.magazine-hero {
+    background: var(--navy);
+    color: var(--white);
+    text-align: center;
+    padding: 5rem 2rem 3rem;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    box-sizing: border-box;
+}
+
+.magazine-hero .hero-main-title {
+    font-family: var(--font-serif);
+    font-size: 3rem;
+    font-weight: 900;
+    margin: 0.5rem 0;
+}
+
+/* ============================================
+   Category Section (Front Page)
+   ============================================ */
+.fw-category-section {
+    margin-bottom: 3rem;
+}
+
+.fw-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid #eee;
+}
+
+.fw-section-title-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.fw-section-hash {
+    color: var(--primary);
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+.fw-section-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--navy);
+    margin: 0;
+}
+
+.fw-view-all {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--navy);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.fw-view-all:hover {
+    color: #64ffda;
+}
+
+/* ============================================
+   Card Grid & Cards
+   ============================================ */
+.fw-card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.fw-card {
+    background: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.fw-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+}
+
+.fw-card-thumb {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16 / 10;
+}
+
+.fw-card-thumb a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.fw-card-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.fw-card:hover .fw-card-thumb img {
+    transform: scale(1.05);
+}
+
+.fw-card-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--navy), var(--navy-light));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    font-size: 2rem;
+    font-weight: 900;
+}
+
+.fw-card-cat-badge {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    background: var(--primary);
+    color: var(--navy);
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 4px 10px;
+    border-radius: 4px;
+    z-index: 1;
+}
+
+.fw-card-body {
+    padding: 1.25rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.fw-card-date {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.fw-card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin: 0 0 0.75rem;
+    color: var(--navy);
+}
+
+.fw-card-title a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.fw-card-title a:hover {
+    color: #1a73e8;
+}
+
+.fw-card-excerpt {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    flex: 1;
+}
+
+.fw-read-more {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--navy);
+    text-decoration: none;
+    margin-top: auto;
+    transition: color 0.3s;
+}
+
+.fw-read-more:hover {
+    color: #1a73e8;
+}
+
+/* ============================================
+   Single Post Styles
+   ============================================ */
+.fw-single-post .entry-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #444;
+}
+
+.fw-single-post .entry-content h2,
+.fw-single-post .entry-content h3 {
+    color: var(--navy);
+    margin-top: 2rem;
+}
+
+.fw-single-post .entry-content p {
+    margin-bottom: 1.5rem;
+}
+
+.fw-single-post .entry-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.tags-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    margin-right: 0.5rem;
+    transition: color 0.3s;
+}
+
+.tags-links a:hover {
+    color: var(--navy);
+}
+
+/* ============================================
+   Footer
+   ============================================ */
+.fw-footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1.5rem 0;
+    border-top: 1px solid #eee;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.footer-legal-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.footer-legal-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-legal-links a:hover {
+    color: var(--navy);
+}
+
+/* ============================================
+   Pagination
+   ============================================ */
+.pagination-area {
+    text-align: center;
+    margin: 3rem 0;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.nav-links .page-numbers {
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    text-decoration: none;
+    color: var(--navy);
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+.nav-links .page-numbers:hover,
+.nav-links .page-numbers.current {
+    background: var(--navy);
+    color: var(--white);
+}
+
+/* ============================================
+   3-Column Calculator Layout
+   ============================================ */
+.fw-calc-wrapper {
+    display: grid;
+    grid-template-columns: 320px 1fr 1fr;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    overflow: hidden;
+    min-height: 600px;
+}
+
+/* 1. Left Title Sidebar (Navy) */
+.fw-calc-title-section {
+    background-color: var(--navy);
+    color: white;
+    padding: 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+.fw-tools-label {
+    color: var(--primary);
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.fw-tools-title {
+    font-family: var(--font-serif);
+    font-size: 2.8rem;
+    font-weight: 900;
+    line-height: 1.1;
+    margin: 0;
+    word-break: keep-all;
+    overflow-wrap: normal;
+}
+
+.fw-tools-title em {
+    color: var(--primary);
+    font-style: italic;
+}
+
+/* 2. Middle Input Section (White) */
+.fw-calc-input-section {
+    padding: 2.5rem;
+    border-right: 1px solid #f0f0f0;
+}
+
+.fw-calc-heading {
+    font-size: 1.5rem;
+    color: var(--navy);
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--primary);
+    display: inline-block;
+    padding-bottom: 0.5rem;
+}
+
+.fw-form-group { margin-bottom: 1.5rem; }
+.fw-form-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; color: #444; }
+
+.fw-input, .fw-select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.fw-calc-btn {
+    width: 100%;
+    padding: 1rem;
+    background: var(--navy);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+.fw-calc-btn:hover { background-color: #1a2f4c; }
+.fw-calc-btn:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+
+/* 3. Right Result Section */
+.fw-calc-result-section {
+    background-color: #4a5568;
+    color: white;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.fw-big-number { text-align: center; margin: 2rem 0; }
+.fw-big-number .label { font-size: 0.8rem; text-transform: uppercase; opacity: 0.8; display:block; }
+.fw-big-number .value { font-size: 3rem; font-weight: 700; color: var(--primary); display:block; }
+
+.fw-breakdown-list .item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.item.text-danger span:last-child { color: #ff6b6b; }
+.item.text-success span:last-child { color: var(--primary); }
+
+/* Slider */
+.range-wrap { display: flex; align-items: center; gap: 1rem; }
+.fw-range { flex: 1; }
+
+/* ============================================
+   [New] Accordion UI Styles
+   ============================================ */
+.fw-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.fw-accordion-item {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.fw-accordion-header {
+    width: 100%;
+    text-align: left;
+    background: rgba(0, 0, 0, 0.2);
+    color: var(--white);
+    border: none;
+    padding: 1.25rem 1.5rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.fw-accordion-header > div {
+    display: flex;
+    align-items: center;
+}
+
+.fw-accordion-header:hover:not(.locked) {
+    background: rgba(100, 255, 218, 0.1);
+}
+
+.fw-accordion-header.active {
+    background: var(--navy);
+    border-bottom: 1px solid rgba(100, 255, 218, 0.3);
+    color: var(--primary);
+}
+
+/* 잠긴(Locked) 아코디언 상태 표시 */
+.fw-accordion-header.locked {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.fw-accordion-header .icon {
+    font-size: 0.8rem;
+    transition: transform 0.3s;
+}
+
+.fw-accordion-header.active .icon {
+    transform: rotate(180deg);
+}
+
+.fw-accordion-header .step-num {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 26px;
+    height: 26px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+    margin-right: 12px;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+}
+
+.fw-accordion-header.active .step-num {
+    background: var(--primary);
+    color: var(--navy);
+}
+
+.fw-accordion-body {
+    padding: 1.5rem;
+}
+
+/* ============================================
+   CTA Buttons & Ad Placeholder
+   ============================================ */
+.fw-step-cta {
+    margin: 2rem 0 0.5rem 0;
+}
+
+.ad-placeholder {
+    display: none; /* 애드센스 적용 전까지 숨김 처리 */
+    background: rgba(255,255,255,0.05);
+    border: 1px dashed rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.5);
+    padding: 1rem;
+    text-align: center;
+    font-size: 0.8rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.fw-action-btn {
+    display: inline-block;
+    width: 100%;
+    padding: 1rem 1.5rem;
+    background: transparent;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.fw-action-btn:hover {
+    background: var(--primary);
+    color: var(--navy);
+}
+
+.fw-action-btn.primary {
+    background: var(--primary);
+    color: var(--navy);
+}
+
+.fw-action-btn.primary:hover {
+    background: #4ae0c0;
+    border-color: #4ae0c0;
+}
+
+/* 50/30/20 Budget Bar */
+.fw-budget-bar {
+    display: flex;
+    height: 24px;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    background: #333;
+}
+
+.budget-segment {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+.budget-segment.needs { background: #3b82f6; }
+.budget-segment.wants { background: #f59e0b; }
+.budget-segment.savings { background: #22c55e; }
+
+.fw-budget-legend {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.legend-item {
+    flex: 1;
+    background: rgba(255,255,255,0.05);
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+.legend-item.highlight {
+    background: rgba(100, 255, 218, 0.1);
+    border: 1px solid rgba(100, 255, 218, 0.3);
+}
+
+.legend-item strong {
+    display: block;
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+    color: white;
+}
+
+.legend-item.highlight strong {
+    color: var(--primary);
+}
+
+.dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.dot.needs { background: #3b82f6; }
+.dot.wants { background: #f59e0b; }
+.dot.savings { background: #22c55e; }
+
+
+/* ============================================
+   One-Pick Premium Banner UI
+   ============================================ */
+.rec-msg {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #ccd6f6;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: rgba(255,255,255,0.05);
+    border-left: 4px solid var(--primary);
+    border-radius: 0 8px 8px 0;
+}
+
+.premium-banner-wrap {
+    margin-top: 1rem;
+}
+
+.premium-banner {
+    display: block;
+    background: linear-gradient(135deg, rgba(17, 34, 64, 0.8) 0%, rgba(10, 25, 47, 0.9) 100%);
+    border: 1px solid rgba(100, 255, 218, 0.25);
+    border-radius: 12px;
+    padding: 2rem;
+    text-decoration: none;
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.premium-banner:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary);
+    box-shadow: 0 15px 30px rgba(100, 255, 218, 0.15);
+}
+
+.premium-badge {
+    display: inline-block;
+    background: rgba(100, 255, 218, 0.1);
+    color: var(--primary);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(100, 255, 218, 0.3);
+}
+
+.premium-title {
+    font-size: 1.3rem;
+    font-weight: 800;
+    line-height: 1.4;
+    margin: 0 0 1rem 0;
+    color: var(--white);
+}
+
+.premium-action {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--navy);
+    background: var(--primary);
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    transition: background 0.3s;
+}
+
+.premium-banner:hover .premium-action {
+    background: #4ae0c0;
+}
+
+
+/* ============================================
+   Visual Post Navigation
+   ============================================ */
+.fw-post-navigation {
+    border-top: 2px solid var(--navy);
+    padding-top: 2rem;
+}
+
+.fw-nav-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.fw-nav-card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    background: var(--white);
+    border: 1px solid #eee;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.fw-nav-card.empty {
+    border: none;
+    background: transparent;
+    pointer-events: none;
+}
+
+.fw-nav-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+.fw-nav-card .nav-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.fw-nav-card .nav-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin: 0;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.fw-nav-card.next {
+    text-align: right;
+}
+
+.fw-nav-card.next .nav-label {
+    color: var(--primary);
+}
+
+/* ============================================
+   Mobile Responsiveness
+   ============================================ */
+@media (max-width: 992px) {
+    .fw-card-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .fw-calc-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .fw-calc-title-section {
+        padding: 3rem 2rem;
+        text-align: center;
+    }
+
+    .fw-calc-result-section {
+        min-height: auto;
+    }
+
+    .fw-hero-title {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .fw-card-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .fw-hero-title {
+        font-size: 2rem;
+    }
+
+    .fw-hero {
+        padding: 4rem 1.5rem;
+    }
+
+    .fw-section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .fw-footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .fw-nav-links {
+        flex-direction: column;
+    }
+    
+    .fw-nav-card.empty {
+        display: none;
+    }
+
+    .fw-nav-card.next {
+        text-align: left;
+    }
+}
+
+/* ... existing code ... */
+.fw-nav-card.next {
+    text-align: left;
+}
+}
+
+/* ... existing code ... */
+.fw-nav-card.next {
+    text-align: left;
+}
+}
+
+/* ============================================
+   News Feed Layout (Archive & Blog) - FIXED
+   ============================================ */
+
+/* 콘텐츠 래퍼: 메인(글 목록)과 사이드바를 양옆으로 배치 */
+.fw-archive-content-wrapper {
+    display: flex;
+    gap: 3rem; /* 글 목록과 사이드바 사이의 간격 */
+    align-items: flex-start; /* 콘텐츠를 위쪽으로 정렬 */
+}
+
+/* 메인 영역(글 목록) 크기 설정 */
+.fw-archive-main {
+    flex: 1; /* 남은 공간을 모두 차지하도록 설정 */
+    min-width: 0; /* 콘텐츠가 넘쳐서 레이아웃이 깨지는 것 방지 */
+}
+
+/* 사이드바 영역 크기 고정 */
+.fw-archive-sidebar {
+    flex: 0 0 300px; /* 사이드바 너비를 300px로 고정 */
+}
+
+/* 개별 글 목록 레이아웃 */
+.fw-news-feed-wrapper { 
+    display: flex; 
+    flex-direction: column; 
+}
+
+.fw-news-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 2.5rem 0;
+    border-bottom: 1px solid #eaeaea;
+    transition: background-color 0.2s ease;
+}
+
+.fw-news-row:last-child {
+    border-bottom: none;
+}
+
+.fw-news-row:hover { 
+    background-color: #fcfcfc; 
+}
+
+/* 좌측 메타데이터 */
+.fw-news-meta {
+    flex: 0 0 15%;
+    font-family: var(--font-main);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.fw-news-meta span.cat-name { 
+    display: block; 
+    color: var(--navy); 
+    font-weight: 800; 
+    margin-bottom: 0.5rem; 
+}
+
+/* 중앙 텍스트 */
+.fw-news-text { flex: 1; }
+.fw-news-text h2 { 
+    margin: 0 0 0.75rem 0; 
+    font-size: 1.5rem; 
+    font-weight: 800; 
+    line-height: 1.3; 
+    color: var(--navy);
+}
+
+.fw-news-text h2 a { 
+    color: inherit; 
+    text-decoration: none; 
+    transition: color 0.2s; 
+}
+
+.fw-news-text h2 a:hover { 
+    color: #1a73e8; 
+}
+
+.fw-news-text .fw-excerpt { 
+    font-size: 1rem; 
+    color: #555; 
+    line-height: 1.6; 
+    margin: 0; 
+}
+
+/* 우측 썸네일 (16:9 렌더링 최적화) */
+.fw-news-thumb {
+    flex: 0 0 35%; 
+    max-width: 350px;
+}
+
+.fw-news-thumb a { 
+    display: block; 
+    overflow: hidden; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.fw-news-thumb img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.fw-news-thumb a:hover img { 
+    transform: scale(1.05); 
+}
+
+/* ============================================
+   Mobile Responsiveness (반응형 최적화 - 중요!)
+   ============================================ */
+@media (max-width: 992px) {
+    /* 992px 이하 화면(태블릿/모바일)에서는 사이드바를 아래로 내림 */
+    .fw-archive-content-wrapper { 
+        flex-direction: column; 
+        gap: 2rem; 
+    }
+    .fw-archive-sidebar { 
+        flex: auto; 
+        width: 100%; 
+    }
+}
+
+@media (max-width: 768px) {
+    /* 모바일 기기에서의 글 목록 레이아웃 변경 */
+    .fw-news-row { flex-direction: column; gap: 1rem; padding: 2rem 0; }
+    .fw-news-meta { flex: auto; display: flex; gap: 1rem; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; width: 100%; }
+    .fw-news-meta span.cat-name { margin-bottom: 0; }
+    .fw-news-thumb { flex: auto; max-width: 100%; width: 100%; order: -1; } /* 모바일에서는 이미지를 맨 위로 */
+    .fw-news-text h2 { font-size: 1.3rem; }
+}
